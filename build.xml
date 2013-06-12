@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ContextCommon" default="compile">
+  <property file="build.properties"/>
+  <property file="default.properties"/>
+
+  <property name="bin.dir" value="bin"/>
+  <property name="src.dir" value="src"/>
+  <property name="jar.file" value="${ant.project.name}.jar"/>
+
+  <target name="compile">
+    <mkdir dir="${bin.dir}"/>
+    <javac includeantruntime="false" srcdir="${src.dir}" destdir="${bin.dir}"/>
+  </target>
+
+  <target name="jar">
+    <jar destfile="${jar.file}" basedir="${bin.dir}"/>
+  </target>
+
+  <target name="clean">
+    <delete file="${jar.file}"/>
+    <delete dir="${bin.dir}"/>
+  </target>
+</project>
